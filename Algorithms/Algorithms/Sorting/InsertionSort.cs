@@ -4,29 +4,32 @@ using System.Diagnostics;
 
 internal static class InsertionSort
 {
-    public static int[] Sort(int[] unsortedValues)
+    public static int[] Sort(int[] values)
     {
         var watch = Stopwatch.StartNew();
-        var sortedValues = unsortedValues;
 
-        for (int i = 0; i < unsortedValues.Length; i++)
+        for (int i = 0; i < values.Length; i++)
         {
             var position = i;
-            var tempValue = unsortedValues[position];
+            var tempValue = values[position];
 
-            while (position > 0 && unsortedValues[position - 1] > tempValue)
+            while (position > 0 && values[position - 1] > tempValue)
             {
-                unsortedValues[position] = unsortedValues[position - 1];
+                values[position] = values[position - 1];
                 position--;
             }
 
-            unsortedValues[position] = tempValue;
+            values[position] = tempValue;
         }
 
         watch.Stop();
 
         Console.WriteLine($"It took {watch.Elapsed.TotalMilliseconds} seconds to finish {nameof(InsertionSort)}-{nameof(Sort)}");
+        Console.WriteLine();
 
-        return sortedValues;
+        foreach (var val in values)
+            Console.Write($"{val},");
+
+        return values;
     }
 }

@@ -10,6 +10,4 @@ for (int i = 0; i < 1000; i++)
 
 // Insertion Sort
 var insertionSortResult = InsertionSort.Sort(values);
-//foreach (var val in values)
-//    Console.Write($"{val},");
-
+var selectionSortResult = SelectionSort.Sort(values);
